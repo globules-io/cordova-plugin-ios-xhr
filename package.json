@@ -1,0 +1,30 @@
+{
+  "name": "@globules-io/cordova-plugin-ios-xhr",
+  "version": "1.0.0",
+  "description": "Cordova iOS 6+ File XHR Plugin",
+  "cordova": {
+    "id": "cordova-plugin-ios-xhr",
+    "platforms": [
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/globules-io/cordova-plugin-ios-xhr"
+  },
+  "keywords": [
+    "cordova",
+    "wkwebview",
+    "ecosystem:cordova",
+    "cordova-ios"
+  ],
+  "scripts": {
+    "test": "npm run jshint",
+    "jshint": "node node_modules/jshint/bin/jshint www && node node_modules/jshint/bin/jshint src && node node_modules/jshint/bin/jshint tests"
+  },
+  "author": "globules.io",
+  "license": "MIT",
+  "devDependencies": {
+    "jshint": "^2.6.0"
+  }
+}

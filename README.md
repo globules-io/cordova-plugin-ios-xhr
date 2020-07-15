@@ -8,6 +8,10 @@
 
 > [cordova-plugin-wkwebviewxhrfix](https://github.com/TheMattRay/cordova-plugin-wkwebviewxhrfix)
 
+### Install
+
+     cordova plugin add https://github.com/globules-io/cordova-plugin-ios-xhr
+
 ### Description
 
 >The default behavior of WKWebView is to raise a cross origin exception when loading files from the main bundle using the file protocol - "file://". This plugin works around this shortcoming by loading files via native code if the web view's current location has "file" protocol and the target URL passed to the open method of the XMLHttpRequest is relative. As a security measure, the plugin verifies that the standardized path of the target URL is within the "www" folder of the application's main bundle or in the /Library path of the application data directory.

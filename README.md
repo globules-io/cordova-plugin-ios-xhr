@@ -12,10 +12,13 @@
 
      cordova plugin add https://github.com/globules-io/cordova-plugin-ios-xhr
      
-### Additional Preferences
+### Preferences
 
-     <preference name="allowFileAccessFromFileURLs" value="true" />
-     <preference name="allowUniversalAccessFromFileURLs" value="true" />
+     <preference name="NativeXHRLogging" value="true|false">
+     <preference name="AllowUntrustedCerts"  value="true|false" />
+     <preference name="InterceptRemoteRequests" value="all|secureOnly" />
+     <preference name="allowFileAccessFromFileURLs" value="true|false" />
+     <preference name="allowUniversalAccessFromFileURLs" value="true|false" />
 
 ### Description
 

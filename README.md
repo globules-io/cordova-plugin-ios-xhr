@@ -2,7 +2,7 @@
 ## cordova-ios 6+ File XHR Plugin
 
 ### About
-> Originally, this plugin is a merge of two other plugins, and made compatible for cordova-ios 6+.
+> Originally, this plugin was a merge of two other plugins, and made compatible for cordova-ios 6+.
 
 > [cordova-plugin-wkwebview-file-xhr](https://github.com/oracle/cordova-plugin-wkwebview-file-xhr)
 

@@ -11,6 +11,11 @@
 ### Install
 
      cordova plugin add https://github.com/globules-io/cordova-plugin-ios-xhr
+     
+### Additional Preferences
+
+     <preference name="allowFileAccessFromFileURLs" value="true" />
+     <preference name="allowUniversalAccessFromFileURLs" value="true" />
 
 ### Description
 

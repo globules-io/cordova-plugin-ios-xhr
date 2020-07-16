@@ -8,8 +8,8 @@
 
 > [cordova-plugin-wkwebviewxhrfix](https://github.com/TheMattRay/cordova-plugin-wkwebviewxhrfix)
 
-> It's been since remodified and code from TheMattRay has now been entirely removed. It is kept here as original reference. 
-> This could be turned into a PR to cordova-plugin-wkwebview-file-xhr, if time allows it, or if anybody wants to go at it!
+> It's been since remodified and the code from [TheMattRay](https://github.com/TheMattRay) has now been entirely removed. It is kept here as original reference. 
+> This could be turned into a PR to [cordova-plugin-wkwebview-file-xhr](https://github.com/oracle/cordova-plugin-wkwebview-file-xhr), if time allows it, or if anybody wants to go at it!
 
 ### Install
 

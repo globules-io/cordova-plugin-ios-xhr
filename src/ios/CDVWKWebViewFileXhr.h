@@ -47,6 +47,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign) BOOL  allowsInsecureLoads;
 @property (nonatomic, strong) NSString * interceptRemoteRequests;
+//added
+@property (nonatomic, assign) BOOL  allowFileAccessFromFileURLs;
+@property (nonatomic, assign) BOOL  allowUniversalAccessFromFileURLs;
 
 
 @end

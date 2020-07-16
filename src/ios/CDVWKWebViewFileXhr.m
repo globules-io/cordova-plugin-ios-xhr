@@ -69,45 +69,31 @@ NS_ASSUME_NONNULL_BEGIN
 
 @implementation CDVWKWebViewFileXhr
 
-
 -(void) pluginInitialize {
     [super pluginInitialize];
     
     if (![self.webView isKindOfClass:WKWebView.class])
-        return;
+        return;  
 
-   
-    WKWebView *wkWebView = (WKWebView *) self.webView;
+    WKWebView *wkWebView = (WKWebView *) self.webView; 
 
-    //XHR-Fix from https://github.com/TheMattRay/cordova-plugin-wkwebviewxhrfix
-    SEL selector = NSSelectorFromString(@"createConfigurationFromSettings:");
-    Method originalMethod = class_getInstanceMethod([wkWebView class], selector);
-    IMP originalImp = method_getImplementation(originalMethod);
-    typedef WKWebViewConfiguration* (*send_type)(id, SEL , NSDictionary*);
-    send_type originalImpSend = (send_type)originalImp;    
+    // added : allowFileAccessFromFileURLs  allowUniversalAccessFromFileURLs
+    NSString *value = [self.commandDelegate.settings cdvwkStringForKey:@"allowFileAccessFromFileURLs"];   
+    _allowFileAccessFromFileURLs = YES;
+    if (value != nil && [value isEqualToString:@"false"]){   
+        _allowFileAccessFromFileURLs = NO;            
+    }
+    [wkWebView.configuration.preferences setValue:@(_allowFileAccessFromFileURLs) forKey:@"allowFileAccessFromFileURLs"];
 
-    IMP newImp = imp_implementationWithBlock(^(id _self, NSDictionary* settings){
-        // Get the original configuration
-        WKWebViewConfiguration* configuration = originalImpSend(_self, selector, settings);
-        // allow access to file api
-        @try {
-            [configuration.preferences setValue:@TRUE forKey:@"allowFileAccessFromFileURLs"];
-        }
-        @catch (NSException *exception) {}
-        
-        @try {
-            [configuration setValue:@TRUE forKey:@"allowUniversalAccessFromFileURLs"];
-        }
-        @catch (NSException *exception) {}
-        
-        return configuration;
-    });
-
-    method_setImplementation(originalMethod, newImp);
-    
+    _allowUniversalAccessFromFileURLs = YES;
+    value = [self.commandDelegate.settings cdvwkStringForKey:@"allowUniversalAccessFromFileURLs"];
+    if (value != nil && [value isEqualToString:@"false"]){  
+        _allowUniversalAccessFromFileURLs = NO; 
+    }
+    [wkWebView.configuration setValue:@(_allowUniversalAccessFromFileURLs) forKey:@"allowUniversalAccessFromFileURLs"];      
     
     // note:  settings translates all preferences to lower case
-    NSString *value = [self.commandDelegate.settings cdvwkStringForKey:@"allowuntrustedcerts"];
+    value = [self.commandDelegate.settings cdvwkStringForKey:@"allowuntrustedcerts"];
     if (value != nil && [value compare:@"on" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
         _allowsInsecureLoads = YES;
         NSLog(@"WARNING: NativeXHR is allowing untrusted certificates due to preference AllowUntrustedCerts=on");
@@ -142,10 +128,6 @@ NS_ASSUME_NONNULL_BEGIN
         [wkWebView.configuration.userContentController addScriptMessageHandler:self name:@"nativeXHR"];
 
     }
-
-   
-    
-    method_setImplementation(originalMethod, newImp);
 }
 
 - (void) dispose {

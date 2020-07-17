@@ -77,7 +77,7 @@ NS_ASSUME_NONNULL_BEGIN
     WKWebView *wkWebView = (WKWebView *) self.webView; 
 
     // added : allowFileAccessFromFileURLs  allowUniversalAccessFromFileURLs
-    NSString *value = [self.commandDelegate.settings cdvwkStringForKey:@"allowFileAccessFromFileURLs"];   
+    NSString *value = [self.commandDelegate.settings cdvwkStringForKey:@"allowfileaccessfromfileurls"];   
     _allowFileAccessFromFileURLs = YES;
     if (value != nil && [value isEqualToString:@"false"]){   
         _allowFileAccessFromFileURLs = NO;            
@@ -85,7 +85,7 @@ NS_ASSUME_NONNULL_BEGIN
     [wkWebView.configuration.preferences setValue:@(_allowFileAccessFromFileURLs) forKey:@"allowFileAccessFromFileURLs"];
 
     _allowUniversalAccessFromFileURLs = YES;
-    value = [self.commandDelegate.settings cdvwkStringForKey:@"allowUniversalAccessFromFileURLs"];
+    value = [self.commandDelegate.settings cdvwkStringForKey:@"allowuniversalaccessfromfileurls"];
     if (value != nil && [value isEqualToString:@"false"]){  
         _allowUniversalAccessFromFileURLs = NO; 
     }

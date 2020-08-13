@@ -1,6 +1,6 @@
 {
   "name": "@globules-io/cordova-plugin-ios-xhr",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Cordova iOS 6+ File XHR Plugin",
   "cordova": {
     "id": "cordova-plugin-ios-xhr",

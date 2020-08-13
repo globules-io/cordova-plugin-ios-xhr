@@ -21,7 +21,7 @@
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     id="cordova-plugin-ios-xhr"
-    version="1.0.0">
+    version="1.0.5">
     <name>Cordova WKWebView File XHR Plugin</name>
     <description>This plugin resolves XHR Cross-Origin Resource Sharing (CORS) constraints.</description>
     <license>MIT</license> 

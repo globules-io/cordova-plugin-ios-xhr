@@ -23,7 +23,7 @@
      
 ### Uninstall
 
-     cordova plugin rm cordova-plugin-ios-xhr
+     cordova plugin rm @globules-io/cordova-plugin-ios-xhr
      
 ### Preferences
 

@@ -6,6 +6,10 @@ labels: ''
 assignees: globules-io
 
 ---
+**Before you start**
+Found a bug? Something you can fix? Please do a PR.
+Do not hijack a bug report or comment on closed ones.
+Be nice and polite and respect our time.
 
 **Describe the bug**
 A clear and concise description of what the bug is.

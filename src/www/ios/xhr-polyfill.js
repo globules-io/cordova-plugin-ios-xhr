@@ -601,6 +601,9 @@
       reqContext.requestData = undefined;
 
       var timeoutInSecs = (isNaN(reqContext.timeout) ? undefined : (reqContext.timeout / 1000));
+      
+      // change for Lindt: hard timeout!
+      timeoutInSecs = 180;
 
       var reqPayLoad = {id: id, callback: "nativeXHRResponse",
         url: HttpHandler._resolveUri(reqContext.url), method: reqContext.method,

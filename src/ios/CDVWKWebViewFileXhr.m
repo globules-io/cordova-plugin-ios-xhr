@@ -76,25 +76,34 @@ NS_ASSUME_NONNULL_BEGIN
 
     WKWebView *wkWebView = (WKWebView *) self.webView; 
 
-    // added : allowFileAccessFromFileURLs  allowUniversalAccessFromFileURLs
+    // allowFileAccessFromFileURLs  allowUniversalAccessFromFileURLs
     NSString *value = [self.commandDelegate.settings cdvwkStringForKey:@"allowfileaccessfromfileurls"];   
    
+    BOOL allowFileAccessFromFileURLs = NO;
+
     if (value != nil && [value isEqualToString:@"true"]){   
-        _allowFileAccessFromFileURLs = YES;    
+        allowFileAccessFromFileURLs = YES;    
         NSLog(@"WARNING: File access allowed due to preference allowFileAccessFromFileURLs=true");        
-    }else{
-        _allowFileAccessFromFileURLs = NO;
     }
-    [wkWebView.configuration.preferences setValue:@(_allowFileAccessFromFileURLs) forKey:@"allowFileAccessFromFileURLs"];
+    [wkWebView.configuration.preferences setValue:@(allowFileAccessFromFileURLs) forKey:@"allowFileAccessFromFileURLs"];
    
+    BOOL allowUniversalAccessFromFileURLs = NO;
+
     value = [self.commandDelegate.settings cdvwkStringForKey:@"allowuniversalaccessfromfileurls"];
     if (value != nil && [value isEqualToString:@"true"]){  
-        _allowUniversalAccessFromFileURLs = YES; 
+        allowUniversalAccessFromFileURLs = YES; 
         NSLog(@"WARNING: Universal access allowed due to preference allowUniversalAccessFromFileURLs=true");
-    }else{
-        _allowUniversalAccessFromFileURLs = NO;        
     }
-    [wkWebView.configuration setValue:@(_allowUniversalAccessFromFileURLs) forKey:@"allowUniversalAccessFromFileURLs"];      
+    [wkWebView.configuration setValue:@(allowUniversalAccessFromFileURLs) forKey:@"allowUniversalAccessFromFileURLs"];      
+
+    // custom user agent  
+    value = [self.commandDelegate.settings cdvwkStringForKey:@"customuseragent"];
+    if (value != nil) {
+        NSLog(@"INFO: Using Custom User-Agent");
+        _customUserAgent = value;
+    }else{
+        _customUserAgent = @"false";
+    }    
     
     // note:  settings translates all preferences to lower case
     value = [self.commandDelegate.settings cdvwkStringForKey:@"allowuntrustedcerts"];
@@ -371,8 +380,7 @@ NS_ASSUME_NONNULL_BEGIN
     id val = [body objectForKey:@"timeout"];
     if ([val isKindOfClass:NSNumber.class]) {
         request.timeoutInterval = [(NSNumber *) val doubleValue];
-    }
-    
+    }       
     
     val = [body objectForKey:@"headers"];
     if ([val isKindOfClass:NSDictionary.class]) {
@@ -382,6 +390,11 @@ NS_ASSUME_NONNULL_BEGIN
             [request setValue:(NSString *)obj forHTTPHeaderField:(NSString *)key];
         }];
     }
+
+    //test user agent 
+    if(![_customUserAgent isEqualToString:@"false"]){
+        [request setValue:_customUserAgent forHTTPHeaderField:@"User-Agent"];
+    }  
     
     NSString *body64 = [body cdvwkStringForKey:@"body"];
     if (body64.length) {

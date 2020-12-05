@@ -602,8 +602,12 @@
 
       var timeoutInSecs = (isNaN(reqContext.timeout) ? undefined : (reqContext.timeout / 1000));
       
-      // change for Lindt: hard timeout!
-      timeoutInSecs = 180;
+      // use timeout from jQuery ajax settings
+      try {
+        if (typeof jQuery != 'undefined' && jQuery.ajaxSettings.timeout > 0) {
+          timeoutInSecs = jQuery.ajaxSettings.timeout;
+        }
+      } catch(e) { }
 
       var reqPayLoad = {id: id, callback: "nativeXHRResponse",
         url: HttpHandler._resolveUri(reqContext.url), method: reqContext.method,

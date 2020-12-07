@@ -25,7 +25,7 @@
      
 > Or install from github master
 
-     cordova plugin add https://github.com/@castana/cordova-plugin-ios-xhr
+     cordova plugin add https://github.com/@castana-solutions/cordova-plugin-ios-xhr
      
 ### Uninstall
 
@@ -48,4 +48,4 @@
 
 >Fixes local file access via XHR with WKWebView
 
->CustomUserAgent is only set for XHR requests and does not override cordova's OverrideUserAgent
+>Override timeout for native XHR, using timeout from jQuery ($.ajaxSettings.timeout)

@@ -20,12 +20,12 @@
  -->
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-    id="@globules-io/cordova-plugin-ios-xhr" version="1.2.1">
+    id="@castana/cordova-plugin-ios-xhr" version="1.0.8">
     <name>Cordova WKWebView File XHR Plugin</name>
     <description>This plugin resolves XHR Cross-Origin Resource Sharing (CORS) constraints.</description>
     <license>MIT</license> 
     <keywords>cordova,wkwebview,webview</keywords>
-    <repo>https://github.com/globules-io/cordova-plugin-ios-xhr.git</repo>
+    <repo>https://github.com/castana-solutions/cordova-plugin-ios-xhr.git</repo>
     <engines>
       <engine name="cordova-ios" version=">=6.0.0" />
       <engine name="apple-ios" version=">=9.0" />

@@ -1,6 +1,12 @@
 # cordova-plugin-ios-xhr
 ## cordova-ios 6+ File XHR Plugin
 
+### Preface
+> Dec 2020: This plugin was forked from https://github.com/globules-io/cordova-plugin-ios-xhr
+
+> Purpose: Add capabilities to adjust timeout for jQuery triggered XHR requests.
+
+
 ### About
 > Originally, this plugin was a merge of two other plugins, and made compatible for cordova-ios 6+.
 
@@ -15,15 +21,15 @@
 
 > Install latest release
 
-     cordova plugin add @globules-io/cordova-plugin-ios-xhr
+     cordova plugin add @castana/cordova-plugin-ios-xhr
      
 > Or install from github master
 
-     cordova plugin add https://github.com/globules-io/cordova-plugin-ios-xhr
+     cordova plugin add https://github.com/@castana/cordova-plugin-ios-xhr
      
 ### Uninstall
 
-     cordova plugin rm @globules-io/cordova-plugin-ios-xhr
+     cordova plugin rm @castana/cordova-plugin-ios-xhr
      
 ### Preferences
 

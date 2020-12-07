@@ -1,16 +1,16 @@
 {
-  "name": "@globules-io/cordova-plugin-ios-xhr",
-  "version": "1.2.1",
+  "name": "@castana/cordova-plugin-ios-xhr",
+  "version": "1.0.0",
   "description": "Cordova iOS 6+ File XHR Plugin",
   "cordova": {
-    "id": "@globules-io/cordova-plugin-ios-xhr",
+    "id": "@castana/cordova-plugin-ios-xhr",
     "platforms": [
       "ios"
     ]
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/globules-io/cordova-plugin-ios-xhr"
+    "url": "git+https://github.com/castana-solutions/cordova-plugin-ios-xhr.git"
   },
   "keywords": [
     "cordova",
@@ -22,9 +22,17 @@
     "test": "npm run jshint",
     "jshint": "node node_modules/jshint/bin/jshint www && node node_modules/jshint/bin/jshint src && node node_modules/jshint/bin/jshint tests"
   },
-  "author": "globules.io",
+  "author": "CASTANA Solutions GmbH",
   "license": "MIT",
   "devDependencies": {
     "jshint": "^2.6.0"
+  },
+  "bugs": {
+    "url": "https://github.com/castana-solutions/cordova-plugin-ios-xhr/issues"
+  },
+  "homepage": "https://github.com/castana-solutions/cordova-plugin-ios-xhr#readme",
+  "main": " ",
+  "directories": {
+    "test": "tests"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "@castana/cordova-plugin-ios-xhr",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Cordova iOS 6+ File XHR Plugin",
   "cordova": {
     "id": "@castana/cordova-plugin-ios-xhr",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/castana-solutions/cordova-plugin-ios-xhr.git"
+    "url": "git+https://github.com/CASTANA-Solutions/cordova-plugin-ios-xhr.git"
   },
   "keywords": [
     "cordova",
@@ -28,9 +28,9 @@
     "jshint": "^2.6.0"
   },
   "bugs": {
-    "url": "https://github.com/castana-solutions/cordova-plugin-ios-xhr/issues"
+    "url": "https://github.com/CASTANA-Solutions/cordova-plugin-ios-xhr/issues"
   },
-  "homepage": "https://github.com/castana-solutions/cordova-plugin-ios-xhr#readme",
+  "homepage": "https://github.com/CASTANA-Solutions/cordova-plugin-ios-xhr#readme",
   "main": " ",
   "directories": {
     "test": "tests"

@@ -1,4 +1,5 @@
-/*
+/* 2020-12-10 Modified by Mike Nelson, BEWEB.
+
  * Copyright (c) 2016, 2017 Oracle and/or its affiliates.
  *
  * The Universal Permissive License (UPL), Version 1.0
@@ -184,13 +185,17 @@ NS_ASSUME_NONNULL_BEGIN
  */
 -(BOOL)isWebContentResourceSecure: (NSURL*) targetURL
 {
+   // mike nelson - modified to allow Documents urls
+ 
     NSURL *baseURL = [NSURL URLWithString:@"www" relativeToURL:[[NSBundle mainBundle] resourceURL]];
     NSString *basePath = [baseURL absoluteString];
     NSString *targetPath = [[targetURL standardizedURL] absoluteString];
     
     return [targetPath hasPrefix:basePath] ||
            [targetPath hasPrefix:[[NSURL fileURLWithPath:
-                                   [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) objectAtIndex:0]]  absoluteString]];
+                                   [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) objectAtIndex:0]]  absoluteString]]||
+           [targetPath hasPrefix:[[NSURL fileURLWithPath:
+                                   [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]]  absoluteString]];
 }
 
 /*!

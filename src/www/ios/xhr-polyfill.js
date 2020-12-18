@@ -605,7 +605,7 @@
       // use timeout from jQuery ajax settings
       try {
         if (typeof jQuery != 'undefined' && jQuery.ajaxSettings.timeout > 0) {
-          timeoutInSecs = jQuery.ajaxSettings.timeout;
+          timeoutInSecs = Math.ceil(jQuery.ajaxSettings.timeout / 1000);
         }
       } catch(e) { }
 

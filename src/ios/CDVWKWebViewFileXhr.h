@@ -50,6 +50,7 @@ NS_ASSUME_NONNULL_BEGIN
 //user agent
 @property (nonatomic, assign) NSString * customUserAgent;
 
+// TODO define sync cookie function
 
 @end
 

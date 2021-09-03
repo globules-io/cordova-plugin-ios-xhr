@@ -68,6 +68,25 @@ NS_ASSUME_NONNULL_BEGIN
 
 @implementation CDVWKWebViewFileXhr
 
+-(void)syncWKtoNSHTTPCookieStore {
+    // Sync all cookies from the WKHTTPCookieStore to the NSHTTPCookieStorage..
+    // .. to solve make cookies set in the main or IAB webview available for proxy requests
+    WKWebsiteDataStore* dataStore = [WKWebsiteDataStore defaultDataStore];
+    WKHTTPCookieStore* cookieStore = dataStore.httpCookieStore;
+    
+    [cookieStore getAllCookies:^(NSArray* cookies) {
+        NSHTTPCookie* cookie;
+        for(cookie in cookies) {
+            NSMutableDictionary* cookieDict = [cookie.properties mutableCopy];
+            [cookieDict removeObjectForKey:NSHTTPCookieDiscard]; // Remove the discard flag. If it is set (even to false), the expires date will NOT be kept.
+            NSHTTPCookie* newCookie = [NSHTTPCookie cookieWithProperties:cookieDict];
+            [[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookie:newCookie];
+            
+        }
+    }];
+};
+
+
 -(void) pluginInitialize {
     [super pluginInitialize];
     
@@ -332,6 +351,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void) performNativeXHR:(NSDictionary<NSString *, id> *) body inWebView:(WKWebView *) webView {
     
+[self syncWKtoNSHTTPCookieStore];
+
     NSString *requestId = [body cdvwkStringForKey:@"id"];
     NSString *callbackFunction = [body cdvwkStringForKey:@"callback"];
     NSString *urlString = [body cdvwkStringForKey:@"url"];

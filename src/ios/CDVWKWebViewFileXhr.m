@@ -71,6 +71,8 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)syncWKtoNSHTTPCookieStore {
     // Sync all cookies from the WKHTTPCookieStore to the NSHTTPCookieStorage..
     // .. to solve make cookies set in the main or IAB webview available for proxy requests
+    @try {
+    dispatch_async(dispatch_get_main_queue(), ^{    // WKWebsiteDataStore must be used from main thread only
     WKWebsiteDataStore* dataStore = [WKWebsiteDataStore defaultDataStore];
     WKHTTPCookieStore* cookieStore = dataStore.httpCookieStore;
     
@@ -84,6 +86,11 @@ NS_ASSUME_NONNULL_BEGIN
             
         }
     }];
+    });
+    }
+    @catch (NSException *exception) {
+    }
+ };
 };
 
 -(void) pluginInitialize {

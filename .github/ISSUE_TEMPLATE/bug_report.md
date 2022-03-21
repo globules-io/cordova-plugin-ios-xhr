@@ -12,6 +12,8 @@ Do not hijack a bug report or comment on closed ones.
 Be nice and polite and respect our time! Mistakes happen,
 keep you passive aggressive comments for yourself!!
 
+ALL ISSUES CREATED WITHOUT A PROPER BUG REPORT WILL BE CLOSED
+
 **Describe the bug**
 A clear and concise description of what the bug is.
 

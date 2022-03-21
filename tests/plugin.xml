@@ -32,7 +32,7 @@
   <asset src="www/assets" target="wkwebview-file-xhr-tests"/>
   <config-file target="config.xml" parent="/*">
     <preference name="NativeXHRLogging" value="none"/>
-    <preference name="AllowUntrustedCerts" value="on"/>
+    <preference name="AllowUntrustedCerts" value="true"/>
     <preference name="InterceptRemoteRequests" value="secureOnly"/>
   </config-file>
 

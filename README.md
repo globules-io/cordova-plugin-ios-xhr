@@ -27,7 +27,7 @@
      
 > Or install from github master
 
-     cordova plugin add https://github.com/@CASTANA-Solutions/cordova-plugin-ios-xhr
+     cordova plugin add https://github.com/CASTANA-Solutions/cordova-plugin-ios-xhr
      
 ### Uninstall
 

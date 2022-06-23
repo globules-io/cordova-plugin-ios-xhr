@@ -30,7 +30,6 @@
      <preference name="NativeXHRLogging" value="full|none" />
      <preference name="AllowUntrustedCerts"  value="true|false" />
      <preference name="InterceptRemoteRequests" value="all|secureOnly" />
-     <preference name="CustomUserAgent" value="my_custom_user_agent" />
      <preference name="allowFileAccessFromFileURLs" value="true|false" />
      <preference name="allowUniversalAccessFromFileURLs" value="true|false" />
      

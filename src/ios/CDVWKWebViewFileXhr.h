@@ -47,9 +47,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign) BOOL  allowsInsecureLoads;
 @property (nonatomic, strong) NSString * interceptRemoteRequests;
-//user agent
-@property (nonatomic, assign) NSString * customUserAgent;
-
 
 @end
 

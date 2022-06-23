@@ -96,15 +96,6 @@ NS_ASSUME_NONNULL_BEGIN
     }
     [wkWebView.configuration setValue:@(allowUniversalAccessFromFileURLs) forKey:@"allowUniversalAccessFromFileURLs"];      
 
-    // custom user agent  
-    value = [self.commandDelegate.settings cdvwkStringForKey:@"customuseragent"];
-    if (value != nil) {
-        NSLog(@"INFO: Using Custom User-Agent");
-        _customUserAgent = value;
-    }else{
-        _customUserAgent = @"false";
-    }    
-    
     // note:  settings translates all preferences to lower case
     value = [self.commandDelegate.settings cdvwkStringForKey:@"allowuntrustedcerts"];
     if (value != nil && [value isEqualToString:@"true"]) {
@@ -392,12 +383,7 @@ NS_ASSUME_NONNULL_BEGIN
                 return;
             [request setValue:(NSString *)obj forHTTPHeaderField:(NSString *)key];
         }];
-    }
-
-    //test user agent 
-    if(![_customUserAgent isEqualToString:@"false"]){
-        [request setValue:_customUserAgent forHTTPHeaderField:@"User-Agent"];
-    }  
+    }    
     
     NSString *body64 = [body cdvwkStringForKey:@"body"];
     if (body64.length) {

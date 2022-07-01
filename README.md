@@ -29,7 +29,7 @@
 
      <preference name="NativeXHRLogging" value="full|none" />
      <preference name="AllowUntrustedCerts"  value="true|false" />
-     <preference name="InterceptRemoteRequests" value="all|secureOnly" />
+     <preference name="InterceptRemoteRequests" value="all|secureOnly|none" />
      <preference name="allowFileAccessFromFileURLs" value="true|false" />
      <preference name="allowUniversalAccessFromFileURLs" value="true|false" />
      

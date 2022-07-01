@@ -1,6 +1,9 @@
 # cordova-plugin-ios-xhr
 ## cordova-ios 6+ File XHR Plugin
 
+### ARCHIVED
+This plugin is not needed anymore
+
 ### About
 > Originally, this plugin was a merge of two other plugins, and made compatible for cordova-ios 6+.
 
